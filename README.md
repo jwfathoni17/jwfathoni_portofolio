@@ -1,103 +1,40 @@
-# marjoballabani.me
+# Joni Wijaya Fathoni - Portfolio Web
 
-A neo-brutalist personal portfolio built with vanilla HTML, CSS, and JavaScript. No frameworks, no build tools, no dependencies - just raw code with bold design choices.
+A personal neo-brutalist portfolio website built with HTML, CSS, and JavaScript. 
+This portfolio highlights skills, experiences, and projects in the fields of Electrical Engineering, Internet of Things (IoT), Automation, High-Voltage Power Systems, and Web Development.
 
-This is a personal fun project, not a production template. The code prioritizes creativity and experimentation over best practices. It's a playground for trying out ideas, animations, and interactions - not a reference architecture.
+**[Live Site](https://jwfathoni.web.id)**
 
-**[Live Site](https://marjoballabani.me)**
+## Featured Sections
 
-## What is Neo-Brutalism?
-
-Neo-brutalism (also called neo-brutalist web design) is a UI style inspired by brutalist architecture - raw, bold, and unapologetically loud. It rejects the polished, rounded, drop-shadowed sameness of modern web design and replaces it with:
-
-- **Thick black borders** - every element has a hard, visible edge
-- **Flat, offset box shadows** - no soft gradients or blurs, just solid color blocks shifted by a few pixels (`box-shadow: 8px 8px 0 #000`)
-- **High-contrast color palettes** - bright yellows, pinks, cyans, and greens on white/dark backgrounds
-- **Visible structure** - the "bones" of the layout are intentionally exposed, not hidden behind smooth transitions
-- **Playful imperfection** - torn paper edges, tape stickers, hand-drawn vibes mixed with geometric precision
-
-This site leans into a **hand-crafted, scrapbook-like** take on neo-brutalism: paper tear dividers, a falling SVG terminal icon, highlight markers that animate on scroll, and a treasure map hidden behind a book-flip animation.
-
-## Design Decisions
-
-### Color System
-
-The palette uses CSS custom properties for light/dark theming:
-
-| Color | Variable | Usage |
-|-------|----------|-------|
-| Yellow | `--yellow` | Primary accent, CTAs, loader |
-| Cyan | `--cyan` | Code elements, highlights |
-| Pink | `--pink` | Secondary accent, highlights |
-| Green | `--green` | Success states, highlights |
-| Black | `--border` | Borders, shadows, text |
-
-### Typography
-
-- **Space Grotesk** - headings and body text (geometric sans-serif that fits the brutalist aesthetic)
-- **Space Mono** - code snippets and terminal elements
-- **Caveat** - handwritten annotations (the "human touch" element)
-
-### Key Design Elements
-
-**Paper Tear Effect** - Sections are separated by SVG-drawn torn paper edges that close on scroll with a parallax effect, finished by a tape sticker that "seals" the tear back together.
-
-**Book Flip Timeline** - The journey section starts as a closed treasure map that flips open like a book page to reveal the career timeline underneath.
-
-**Scroll-Driven Highlights** - Text highlights animate in from left/right as you scroll, mimicking a highlighter pen being drawn across the page.
-
-**Interactive Map** - Leaflet.js with Stamen watercolor tiles, styled with a grid overlay and pirate illustration. Clicking timeline entries flies to the corresponding map marker.
-
-**Matrix Typing Effect** - The hero greeting scrambles through random characters before resolving to the final text.
-
-**Falling Decorative Icons** - SVG icons around the hero photo drop with gravity when you start scrolling.
-
-## Terminal Mode
-
-Visit [/terminal.html](https://marjoballabani.me/terminal.html) for an interactive terminal-style resume.
-
-Features:
-- Type `help` to see available commands
-- Multiple color themes (Default, Dracula, Solarized, Nord)
-- Split terminal panes (horizontal/vertical)
-- Built-in Snake game (via p5.js)
-- Command history with arrow keys
-
-## Project Structure
-
-```
-.
-├── index.html          # Main portfolio (neo-brutalist)
-├── neo-styles.css      # Styles for index.html
-├── terminal.html       # Terminal-style resume
-├── styles.css          # Styles for terminal.html
-├── script.js           # Terminal logic & commands
-├── favicon.svg         # Site favicon
-├── image/              # Assets (avatar, icons, pirate)
-├── CNAME               # Custom domain config
-├── robots.txt          # Search engine directives
-├── sitemap.xml         # Sitemap for SEO
-└── LICENSE             # MIT License
-```
+- **Hero:** Scrambled text introduction with falling technical elements (microcontrollers, power icons, etc.).
+- **Summary:** A brief overview of my engineering and technical development background.
+- **Experience Journey (Timeline):** An interactive roadmap mapping my professional experiences (Internships, Freelance, Technician) across locations in Indonesia, tied to a visual, hand-drawn map.
+- **Skills:** High-contrast tags showcasing proficiency in Electrical Engineering, IoT, Graphic Design, and Full-Stack Web Development.
+- **Projects:** Selected applications and prototypes (e.g., Cloud POS system, Fire Detection Warning System).
+- **Capstone:** Detailed explanation of the Smart Street Lighting project.
 
 ## Tech Stack
 
-- **HTML/CSS/JS** - no frameworks, no build step
-- **Leaflet.js** - interactive journey map
-- **p5.js** - Snake game in terminal mode
-- **Font Awesome** - icons
-- **Google Fonts** - Space Grotesk, Space Mono, Caveat, Fira Code
+- **HTML5**
+- **Vanilla CSS3 (Neo-Brutalism Design)**
+- **Vanilla JavaScript** (Interactivity, Theme toggling, Scramble Text, Language localization)
+- **Leaflet.js** (Interactive maps)
+- **Font Awesome** (Icons)
 
 ## Run Locally
 
+You can run this project locally using any simple HTTP server:
+
 ```bash
-# Any static server works
+# Using Node.js
 npx serve .
 
-# or
-python3 -m http.server 8000
+# Using Python
+python -m http.server 8000
 ```
 
 ## License
 
-This project is **proprietary**. All rights reserved. You may browse the source code for inspiration, but copying, modifying, or redistributing any part of it without written permission is not allowed. See the [LICENSE](LICENSE) file for details.
+This project and its resources are the intellectual property of **Joni Wijaya Fathoni**.
+See the [LICENSE](LICENSE) file for more information.
