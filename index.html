@@ -196,7 +196,7 @@
                 for (let i = 0; i < text.length; i++) {
                     const char = text[i];
                     if (char === ' ') {
-                        html += '<div style="width: 20px; height: 90px; flex-shrink: 0;"></div>';
+                        html += '<div class="loader-space"></div>';
                     } else {
                         const bg = colors[colorIndex % colors.length];
                         html += '<div class="loader-letter" style="background: ' + bg + '; animation-delay: ' + delay.toFixed(1) + 's">' + char + '</div>';
