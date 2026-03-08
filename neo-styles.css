@@ -995,9 +995,15 @@ body[data-theme="dark"] .job-desc i {
 }
 
 @media (max-width: 768px) {
+  html {
+    font-size: 14px;
+    /* Reduced base font size by ~2px/2pt */
+  }
+
   body {
     padding: 10px;
     overflow-x: hidden;
+    width: 100%;
   }
 
   .page-wrapper {
@@ -1058,6 +1064,60 @@ body[data-theme="dark"] .job-desc i {
   .page-wrapper {
     margin: 0 0 10px 25px !important;
     width: calc(100% - 25px);
+    overflow-x: hidden;
+  }
+
+  /* Reset Experience Mirroring */
+  .journey-timeline {
+    transform: none !important;
+    height: auto !important;
+    max-height: 500px;
+    padding: 1rem !important;
+  }
+
+  .journey-container {
+    perspective: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .journey-timeline-back,
+  .treasure-map-svg {
+    display: none !important;
+  }
+
+  /* Prevent Overflow in Hero and Containers */
+  .hero {
+    padding: 2rem 1rem !important;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .hero-name {
+    font-size: 2.5rem !important;
+  }
+
+  .container {
+    padding: 1rem !important;
+  }
+
+  .card,
+  .skill-box {
+    padding: 1.25rem !important;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .skills-grid-modern {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 

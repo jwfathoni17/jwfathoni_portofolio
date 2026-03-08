@@ -1989,39 +1989,6 @@
         const progressBarFill = document.querySelector('.progress-bar-fill');
         const checkpoints = document.querySelectorAll('.checkpoint');
 
-        function updateProgressBar() {
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight - windowHeight;
-            const scrolled = window.scrollY;
-            const progress = documentHeight > 0 ? (scrolled / documentHeight) * 100 : 0;
-
-            // Hitung posisi dot pertama dan terakhir dalam container
-            const containerRect = progressBarFill.parentElement.getBoundingClientRect();
-            const dots = [...checkpoints].map(c => c.querySelector('.checkpoint-dot')).filter(Boolean);
-
-            if (dots.length === 0) return;
-
-            const firstDotRect = dots[0].getBoundingClientRect();
-            const lastDotRect = dots[dots.length - 1].getBoundingClientRect();
-            const firstDotMid = firstDotRect.top + firstDotRect.height / 2 - containerRect.top;
-            const lastDotMid = lastDotRect.top + lastDotRect.height / 2 - containerRect.top;
-
-            // Fill dimulai dari dot pertama, berakhir di dot terakhir
-            const fillHeight = firstDotMid + (progress / 100) * (lastDotMid - firstDotMid);
-            progressBarFill.style.height = fillHeight + 'px';
-
-            // Dot aktif jika fill sudah melewati tengah dot tersebut
-            dots.forEach((dot, i) => {
-                const dotRect = dot.getBoundingClientRect();
-                const dotMidY = dotRect.top + dotRect.height / 2 - containerRect.top;
-                if (fillHeight >= dotMidY) {
-                    checkpoints[i].classList.add('active');
-                } else {
-                    checkpoints[i].classList.remove('active');
-                }
-            });
-        }
-
         // Checkpoint click handlers
         checkpoints.forEach(checkpoint => {
             checkpoint.addEventListener('click', () => {
