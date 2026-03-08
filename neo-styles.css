@@ -159,7 +159,7 @@ html {
   height: 100%;
   background: var(--yellow);
   width: 0%;
-  animation: progress-fill 1s ease-out forwards;
+  animation: progress-fill 1.7s ease-out forwards;
   animation-delay: 0.3s;
   position: relative;
 }
