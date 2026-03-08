@@ -1157,17 +1157,39 @@ body[data-theme="dark"] .job-desc i {
 
   .education-languages-grid {
     grid-template-columns: 1fr !important;
-    gap: 2rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .languages-card {
+    height: auto !important;
+    min-height: 350px !important;
+    padding: 1.5rem !important;
   }
 
   .character-container {
-    min-height: 200px !important;
+    min-height: 250px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .character-container svg {
+    width: 240px !important;
+    height: 240px !important;
   }
 
   .education-header {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 0.5rem !important;
+  }
+
+  .education-card {
+    margin-bottom: 1rem !important;
+  }
+
+  .education-card-secondary {
+    margin-top: 1rem !important;
   }
 }
 
@@ -3901,6 +3923,20 @@ body[data-theme="dark"] .footer-social-compact a:hover {
 .education-card,
 .languages-card {
   flex: 1;
+}
+
+.education-card-secondary {
+  margin-top: 1.5rem;
+}
+
+.languages-card {
+  height: calc(100% - 3.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--white);
+  overflow: hidden;
+  position: relative;
 }
 
 .education-card {
