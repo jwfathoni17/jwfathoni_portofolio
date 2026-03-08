@@ -4,6 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // Immediate theme initialization to prevent flash
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            // Also set on body as soon as it's available
+            const observer = new MutationObserver(() => {
+                if (document.body) {
+                    document.body.setAttribute('data-theme', savedTheme);
+                    observer.disconnect();
+                }
+            });
+            observer.observe(document.documentElement, { childList: true });
+        })();
+    </script>
 
     <!-- Primary Meta Tags -->
     <title>Joni Wijaya Fathoni | Teknik Elektro</title>
@@ -1474,9 +1489,19 @@
         const body = document.body;
         const icon = themeToggle.querySelector('i');
 
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        body.setAttribute('data-theme', currentTheme);
-        updateIcon(currentTheme);
+        // Theme Toggle click listener
+        themeToggle.addEventListener('click', () => {
+            const theme = document.body.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            document.body.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        // Initialize icon
+        updateIcon(document.body.getAttribute('data-theme') || 'light');
 
         // Language Switch Initialization
         const translations = {
