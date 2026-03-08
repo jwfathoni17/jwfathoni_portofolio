@@ -299,11 +299,10 @@ body[data-theme="dark"] {
 }
 
 .progress-bar-fill {
-  height: 100%;
-  width: 0%;
+  height: 0%;
   background: var(--yellow);
-  transition: width 0.1s ease;
-  border-right: 4px solid var(--border);
+  transition: height 0.2s ease;
+  border-bottom: 4px solid var(--border);
 }
 
 .progress-checkpoints {
@@ -349,15 +348,173 @@ body[data-theme="dark"] {
 }
 
 .checkpoint-label {
-  display: none;
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--border);
+  background: var(--yellow);
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--border);
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
 }
 
-body[data-theme="dark"] .progress-bar-container {
-  background: var(--bg);
+/* Progress Bar Vertical Neo-Brutalist */
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100vh;
+  background: var(--white);
+  border-right: 6px solid var(--border);
+  box-shadow: 8px 0 0 var(--border);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-body[data-theme="dark"] .checkpoint.active .checkpoint-dot {
-  background: var(--secondary);
+.progress-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px !important;
+  min-width: 10px !important;
+  max-width: 10px !important;
+  height: 0%;
+  background: var(--yellow);
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 4px 0 var(--border);
+  transition: height 0.2s ease;
+  border: 3px solid var(--border);
+  border-top: none;
+  z-index: 1;
+}
+
+.progress-hand {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background: var(--yellow);
+  border: 3px solid var(--border);
+  box-shadow: 3px 3px 0 var(--border);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--border);
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: top 0.2s ease, opacity 0.4s ease;
+}
+
+.progress-hand.visible {
+  opacity: 1;
+}
+
+.progress-hand.drawing {
+  animation: hand-draw 0.5s ease infinite alternate;
+}
+
+.progress-hand.erasing {
+  animation: hand-erase 0.5s ease infinite alternate;
+}
+
+@keyframes hand-draw {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(-8deg) scale(1);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(4deg) scale(1.1);
+  }
+}
+
+@keyframes hand-erase {
+  0% {
+    transform: translateX(-50%) translateY(-50%) rotate(8deg) scale(1);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(-50%) rotate(-4deg) scale(1.1);
+  }
+}
+
+.progress-checkpoints-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+  z-index: 2;
+  position: relative;
+}
+
+.checkpoint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkpoint-dot {
+  width: 18px;
+  height: 18px;
+  background: var(--white);
+  border: 4px solid var(--border);
+  border-radius: 50%;
+  margin-bottom: 8px;
+  box-shadow: 4px 4px 0 var(--border);
+  visibility: hidden;
+}
+
+.checkpoint.active .checkpoint-dot {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 4px var(--white), 0 0 0 8px var(--yellow);
+  visibility: hidden;
+}
+
+.checkpoint-label {
+  display: block;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--border);
+  background: var(--yellow);
+  border: 3px solid var(--border);
+  box-shadow: 4px 4px 0 var(--border);
+  padding: 4px 12px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .progress-bar-container {
+    width: 40px;
+  }
+
+  .progress-bar-fill {
+    width: 8px !important;
+    min-width: 8px !important;
+    max-width: 8px !important;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .checkpoint-label {
+    font-size: 0.8rem;
+    padding: 2px 6px;
+  }
 }
 
 /* Neo-brutalist Scrollbars */
@@ -813,24 +970,24 @@ body[data-theme="dark"] .job-desc i {
   position: relative;
 }
 
- .lang-switch:hover {
+.lang-switch:hover {
   transform: translate(3px, 3px);
   box-shadow: 0 0 0 var(--border);
   /* background: var(--cyan); */
   /* Tidak mengubah warna background saat hover */
 }
-}
+
 
 .lang-switch span {
   opacity: 0.5;
   transition: opacity 0.2s;
 }
 
- .lang-switch span.active {
+.lang-switch span.active {
   opacity: 1;
   color: var(--yellow);
 }
-}
+
 
 .lang-divider {
   opacity: 0.3 !important;
