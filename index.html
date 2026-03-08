@@ -1491,8 +1491,8 @@
 
         // Theme Toggle click listener
         themeToggle.addEventListener('click', () => {
-            const theme = document.body.getAttribute('data-theme');
-            const newTheme = theme === 'light' ? 'dark' : 'light';
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
 
             document.documentElement.setAttribute('data-theme', newTheme);
             document.body.setAttribute('data-theme', newTheme);
@@ -1501,7 +1501,7 @@
         });
 
         // Initialize icon
-        updateIcon(document.body.getAttribute('data-theme') || 'light');
+        updateIcon(document.documentElement.getAttribute('data-theme') || 'light');
 
         // Language Switch Initialization
         const translations = {
