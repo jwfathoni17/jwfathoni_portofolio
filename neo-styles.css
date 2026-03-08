@@ -1126,7 +1126,6 @@ body[data-theme="dark"] .job-desc i {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-    order: -1 !important;
     /* Keep photo on top if desired, or remove to follow text */
   }
 
