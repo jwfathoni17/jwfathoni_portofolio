@@ -1032,6 +1032,33 @@ body[data-theme="dark"] .job-desc i {
     margin: 10px 10px 0;
     box-shadow: 4px 4px 0 var(--border);
   }
+
+  .progress-bar-container {
+    width: 25px;
+    border-right: 4px solid var(--border);
+    box-shadow: 4px 0 0 var(--border);
+  }
+
+  .progress-bar-fill {
+    width: 8px !important;
+    min-width: 8px !important;
+    max-width: 8px !important;
+    box-shadow: 0 3px 0 var(--border);
+    border-width: 2px;
+  }
+
+  .progress-hand {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+    border-width: 2px;
+    box-shadow: 2px 2px 0 var(--border);
+  }
+
+  .page-wrapper {
+    margin: 0 0 10px 25px !important;
+    width: calc(100% - 25px);
+  }
 }
 
 /* Hero Section */
