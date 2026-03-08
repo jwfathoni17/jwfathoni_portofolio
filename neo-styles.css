@@ -1135,6 +1135,12 @@ body[data-theme="dark"] .job-desc i {
     height: 400px !important;
   }
 
+  .hero-photo {
+    width: 300px !important;
+    height: 400px !important;
+    object-fit: cover !important;
+  }
+
   .hero-name {
     font-size: 2.5rem !important;
   }
